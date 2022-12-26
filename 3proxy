@@ -1,0 +1,15 @@
+daemon
+nscache 65536
+users gokhan:CL:gokhan1
+
+log /var/log/3proxy.log D
+logformat "- +_L%t.%. %N.%p %E %U %C:%c %R:%r %O %I %h %T"
+rotate 30
+
+flush
+auth strong
+maxconn 128
+allow gokhan
+proxy -p8080 -a
+socks -p9000
+socks -p1080
